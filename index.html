@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Background Chooser</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#main-box').click(function() {
+                    $(this).css('background-color', 'lightgray');
+                    $('.mini_boxes').css('border-color', '');
+
+                    $(this).css('background-image', 'none');
+                })
+                $('.mini_boxes').click(function(event) {
+                    event.stopPropagation();
+                    $('.mini_boxes').css('border-color', '');
+                    $(this).css('border-width', '2.5px');
+                    $(this).css('border-color', 'yellow');
+
+                    var imgSrc = $(this).attr('src');
+
+                    $(this).parent().css('background', 'url('+ imgSrc +')')
+                                    .css('background-repeat', 'no-repeat')
+                                    .css('background-size', '100% 100%');
+                })
+            });
+        </script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Background Chooser</h1>
+        <div id="main-box">
+            <img src="img/bg1.webp" alt="background number 1" class="mini_boxes">
+            <img src="img/bg2.webp" alt="background number 2" class="mini_boxes">
+            <img src="img/bg3.webp" alt="background number 3" class="mini_boxes">
+            <img src="img/bg4.webp" alt="background number 4" class="mini_boxes">
+            <img src="img/bg5.webp" alt="background number 5" class="mini_boxes">
+        </div>
+        </div>
+    </body>
+</html>
